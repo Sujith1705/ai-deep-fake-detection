@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Access | Deepfake Crimes Awareness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('https://source.unsplash.com/1600x900/?cybercrime,hacking,fraud') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .login-container {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #ff4444;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .login-form input {
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .login-form input:focus {
+            border-color: #ff4444;
+            outline: none;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #1e90ff, #007bff);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(30, 144, 255, 0.4);
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0px 6px 15px rgba(30, 144, 255, 0.6);
+        }
+
+        .signup-link {
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .signup-link a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-back {
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        .btn-back:hover {
+            background: linear-gradient(135deg, #e84118, #ff4757);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>🔑 Login & Access</h1>
+        <p>Please enter your credentials to access the platform.</p>
+        
+        <div class="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" class="btn-submit" onclick="login()">Login</button>
+        </div>
+
+        <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        <a href="index.html" class="btn-back">Back to Homepage</a>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            var storedPassword = localStorage.getItem(username);
+
+            if (storedPassword && storedPassword === password) {
+                alert("✅ Login Successful! Redirecting...");
+                localStorage.setItem("isLoggedIn", "true"); // Store login status
+                window.location.href = "index.html"; // Redirect to homepage
+            } else {
+                alert("❌ Invalid Username or Password! Try again.");
+            }
+        }
+    </script>
+</body>
+</html>
