@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎭 AI Deepfake Scanner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100vw;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?ai,technology,security') no-repeat center center/cover;
+            color: white;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ff4444;
+            text-transform: uppercase;
+        }
+
+        .upload-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            background: white;
+            border-radius: 5px;
+            color: black;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #1e90ff, #007bff);
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: 0.3s;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(30, 144, 255, 0.4);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0px 6px 15px rgba(30, 144, 255, 0.6);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 AI Deepfake Scanner</h1>
+        <div class="upload-box">
+            <p>Select an image or video to check for deepfake analysis:</p>
+            <input type="file" id="fileInput" accept="image/*, video/*">
+            <button class="btn" onclick="analyzeFile()">🔍 Analyze</button>
+        </div>
+        <p id="result" class="result"></p>
+    </div>
+
+    <script>
+        function analyzeFile() {
+            var fileInput = document.getElementById("fileInput");
+            var resultText = document.getElementById("result");
+
+            if (fileInput.files.length === 0) {
+                alert("⚠ Please upload an image or video!");
+                return;
+            }
+
+            resultText.innerText = "🔄 Analyzing... Please wait...";
+            
+            setTimeout(() => {
+                // Simulated result (Replace with actual deepfake detection logic)
+                var fakeProbability = Math.random();
+                if (fakeProbability > 0.5) {
+                    resultText.innerText = "❌ Deepfake detected! (Confidence: " + (fakeProbability * 100).toFixed(2) + "%)";
+                    resultText.style.color = "red";
+                } else {
+                    resultText.innerText = "✅ No deepfake detected! (Confidence: " + ((1 - fakeProbability) * 100).toFixed(2) + "%)";
+                    resultText.style.color = "lightgreen";
+                }
+            }, 2000); // Simulated delay
+        }
+    </script>
+</body>
+</html>
